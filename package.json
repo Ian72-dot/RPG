@@ -1,0 +1,22 @@
+{
+  "name": "embervow",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Embervow \u2014 a real-time cooperative browser RPG for 1-15 players.",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "esbuild client/main.jsx --bundle --minify --format=iife --loader:.jsx=jsx --define:process.env.NODE_ENV='\"production\"' --outfile=public/bundle.js",
+    "start": "node server/server.js",
+    "dev": "npm run build && node server/server.js",
+    "prestart": "esbuild client/main.jsx --bundle --minify --format=iife --loader:.jsx=jsx --define:process.env.NODE_ENV='\"production\"' --outfile=public/bundle.js"
+  },
+  "dependencies": {
+    "esbuild": "^0.23.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "ws": "^8.18.0"
+  }
+}
